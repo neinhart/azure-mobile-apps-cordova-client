@@ -15,7 +15,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/azure/azure-mobile-apps-cordova-client"
+        "url": "https://github.com/neinhart/azure-mobile-apps-cordova-client"
     },
     "homepage": "https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/",
     "keywords": [
