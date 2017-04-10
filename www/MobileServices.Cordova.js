@@ -37886,11 +37886,11 @@ function Push(client, installationId) {
  * @param {string} pushChannel The push channel identifier or URI.
  * @param {string} templates An object containing template definitions. Template objects should contain body, headers and tags properties.
  * @param {string} secondaryTiles An object containing template definitions to be used with secondary tiles when using WNS.
- * 
+ * @param {array} tags An array contaning additonal tags.
  * @returns {Promise} A promise that is resolved when registration is successful OR rejected with the error if it fails.
  */
 Push.prototype.register = Platform.async(
-    function (platform, pushChannel, templates, secondaryTiles, callback) {
+    function (platform, pushChannel, templates, secondaryTiles, callback, tags) {
         Validate.isString(platform, 'platform');
         Validate.notNullOrEmpty(platform, 'platform');
 
@@ -37910,7 +37910,8 @@ Push.prototype.register = Platform.async(
             pushChannel: pushChannel,
             platform: platform,
             templates: stringifyTemplateBodies(templates),
-            secondaryTiles: stringifyTemplateBodies(secondaryTiles)
+            secondaryTiles: stringifyTemplateBodies(secondaryTiles),
+	    tags: tags
         };
 
         executeRequest(this.client, 'PUT', pushChannel, requestContent, this.installationId, callback);
